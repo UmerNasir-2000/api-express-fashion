@@ -1,6 +1,14 @@
 {
   "name": "api-fashion",
   "version": "1.0.0",
+  "author": {
+    "name": "Muhammad Umer Nasir",
+    "email": "umer.nas@outlook.com",
+    "url": "https://github.com/UmerNasir-2000"
+  },
+  "repository": {
+    "url": "https://github.com/UmerNasir-2000/api-express-fashion.git"
+  },
   "main": "index.js",
   "license": "MIT",
   "scripts": {
