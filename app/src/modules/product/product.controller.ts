@@ -4,6 +4,6 @@ import ProductService from './product.service';
 const router = Router();
 
 router.route('/')
-      .get((_, res) => res.status(200).json(ProductService.listProducts()));
+      .get(async (_, res) => res.status(200).json(await ProductService.listProducts()));
 
 export default router;

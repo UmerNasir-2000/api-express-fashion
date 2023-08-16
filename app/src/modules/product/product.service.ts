@@ -6,5 +6,5 @@ export default class ProductService {
     static listProducts() { 
         return ProductRepository.listProducts();
     }
-    
+
 }
