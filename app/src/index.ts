@@ -3,10 +3,15 @@ dotenv.config();
 
 import express from 'express';
 
+
+import productRouter from './modules/product/product.controller';
+
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/v1/products/', productRouter)
 
 app.get('/', (_, res) => res.status(200).json({ message: 'Hello, World!' }))
 
