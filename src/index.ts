@@ -3,9 +3,11 @@ dotenv.config();
 
 import express from 'express';
 
+import prisma from './db';
+
 const app = express();
 
-app.get('/', (req, res) => res.status(200).json({ message: 'Teri maa ki' }));
+app.get('/', async (req, res) => res.status(200).json(await prisma.product.findMany()));
 
 const PORT = process.env.PORT || 5000;
 
