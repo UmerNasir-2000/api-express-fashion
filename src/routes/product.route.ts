@@ -1,10 +1,9 @@
 
 import { Router } from 'express';
+import ProductService from '../services';
 
-const router = Router({ caseSensitive: true });
+const router = Router();
 
-router.route('/')
-      .get((req, res) => res.status(200).json({ products: [] })) 
-      .post((req, res) => res.status(200).json({ success: true }))
-
+router.get('/', async (req, res) => res.status(200).json(await ProductService.listProduct())) 
+      
 export default router;
