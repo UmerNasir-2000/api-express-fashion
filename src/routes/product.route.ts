@@ -6,6 +6,14 @@ import ProductService from '../services';
 
 const router = Router();
 
-router.get('/', async (req, res) => res.status(StatusCodes.OK).json(await ProductService.listProduct())) 
-      
+router.get('/:productId', async (req, res) => {
+    const product = await ProductService.getProduct(req.params.productId);
+    return res.status(StatusCodes.OK).json(product);
+});
+
+router.get('/', async (req, res) => {
+    const products = await ProductService.listProduct();
+    return res.status(StatusCodes.OK).json(products);
+});
+
 export default router;

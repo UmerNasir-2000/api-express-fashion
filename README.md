@@ -5,17 +5,16 @@
 
     1. ExpressJS
     2. Typescript
-    3. MongoDB
-    4. Mongoose
-    5. Typegoose
-    6. Envalid
-    7. Elastic Search
-    8. Docker
-    9. Zod
-    10. Axios
-    11. Tsyringe
-    12. Pino
-    13. Passport
+    3. MySQL
+    4. Prisma
+    5. Envalid
+    6. Elastic Search
+    7. Docker
+    8. Zod
+    9. Axios
+    10. Tsyringe
+    11. Pino
+    12. Passport
 
 ## External APIs
 
@@ -43,8 +42,8 @@
 
 ### Products
 
-    - [ ] GET /api/products/
-    - [ ] GET /api/products/:id/
+    - ✅ GET /api/products/
+    - ✅ GET /api/products/:id/
     - [ ] GET /api/products/search/
     - [ ] GET /api/products/suggestions/:id
     - [ ] GET /api/products/resource/
