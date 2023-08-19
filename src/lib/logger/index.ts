@@ -10,4 +10,18 @@ const logger = pino({
     }
 });
 
-export default logger;
+export default class Logger {
+
+    static log(message: string) {
+        logger.info(message);
+    }
+
+    static error(message: string) {
+        logger.error(message);
+    }
+
+    static debug(message: string) {
+        logger.debug(message);
+    }
+
+}

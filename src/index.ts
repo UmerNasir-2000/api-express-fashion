@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
-import logger from './lib/logger';
+import Logger from './lib/logger';
 import setupRoutes from './routes';
 
 const app = express();
@@ -16,5 +16,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT)
    .on('listening', () => {  
       setupRoutes(app)
-      logger.info(`Server listening on http://localhost:${PORT}/`)
+      Logger.log(`Server listening on http://localhost:${PORT}/`)
    });
