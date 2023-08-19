@@ -9,7 +9,7 @@ interface PaginationOptions {
 export default class ProductRepository {
 
     static listProductWithCriteria(
-        whereCriteria?: Prisma.ProductWhereUniqueInput,
+        whereCriteria?: Prisma.ProductWhereInput,
         paginationOptions?: PaginationOptions
     ): Promise<Product[]> {
         return prisma.product.findMany({
@@ -21,11 +21,9 @@ export default class ProductRepository {
     }
 
     static getProductCountWithCriteria(
-        whereCriteria?: Prisma.ProductWhereUniqueInput,
-    ): Promise<Number> {
-        return prisma.product.count({
-            where: whereCriteria,
-        });
+        whereCriteria?: Prisma.ProductWhereInput,
+    ): Promise<number> {
+        return prisma.product.count({ where: whereCriteria });
     }
 
     static getProduct(id: string): Promise<Product> {
