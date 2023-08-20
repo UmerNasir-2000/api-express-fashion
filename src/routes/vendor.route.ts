@@ -1,18 +1,19 @@
 
+
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-import { ProductService } from '../services';
+import { VendorService } from '../services';
 
 const router = Router();
 
-router.get('/:productId', async (req, res) => {
-    const product = await ProductService.getProduct(req.params.productId);
+router.get('/:vendorId', async (req, res) => {
+    const product = await VendorService.getVendor(req.params.vendorId);
     return res.status(StatusCodes.OK).json(product);
 });
 
 router.get('/', async (req, res) => {
-    const products = await ProductService.listProduct();
+    const products = await VendorService.listVendor();
     return res.status(StatusCodes.OK).json(products);
 });
 

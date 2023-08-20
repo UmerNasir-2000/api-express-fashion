@@ -1,3 +1,4 @@
 import ProductRepository from "./product.repository";
+import VendorRepository from "./vendor.repository";
 
-export { ProductRepository };
+export { ProductRepository, VendorRepository };
