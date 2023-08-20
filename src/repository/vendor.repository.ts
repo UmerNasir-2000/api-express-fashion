@@ -1,10 +1,6 @@
 import { Prisma, Vendor } from "@prisma/client";
 import prisma from "../db";
-
-interface PaginationOptions { 
-    limit: number;
-    offset: number; 
-}
+import { PaginationOptions } from "../types";
 
 export default class VendorRepository {
 

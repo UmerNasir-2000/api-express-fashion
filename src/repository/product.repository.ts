@@ -1,10 +1,8 @@
 import { Prisma, Product } from "@prisma/client";
+import { PaginationOptions } from "../types";
+
 import prisma from "../db";
 
-interface PaginationOptions { 
-    limit: number;
-    offset: number; 
-}
 
 export default class ProductRepository {
 
