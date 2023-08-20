@@ -6,7 +6,7 @@ export default class VendorRepository {
 
     static listVendorWithCriteria(
         whereCriteria?: Prisma.VendorWhereInput,
-        paginationOptions?: PaginationOptions
+        paginationOptions?: PaginationOptions,
     ): Promise<Vendor[]> {
         return prisma.vendor.findMany({
             where: whereCriteria,
@@ -15,6 +15,24 @@ export default class VendorRepository {
             orderBy: { createdAt: 'desc' }
         });
     }
+
+    static listVendorProductsWithCriteria(
+        id: string,
+        whereProductCriteria?: Prisma.ProductWhereInput,
+        paginationOptions?: PaginationOptions
+    ): Promise<Vendor[]> {
+        return prisma.vendor.findMany({
+            where: { id },
+            include: {
+                products: {
+                    where: whereProductCriteria,
+                    skip: paginationOptions?.offset,
+                    take: paginationOptions?.offset
+                }
+            }
+        });
+    }
+    
 
     static getVendorCountWithCriteria(
         whereCriteria?: Prisma.VendorWhereInput,

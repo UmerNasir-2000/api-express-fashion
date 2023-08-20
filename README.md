@@ -33,9 +33,9 @@
 
 ### Vendors
 
-    - [ ] GET /api/vendors/
-    - [ ] GET /api/vendors/:id/
-    - [ ] GET /api/vendors/:id/product/
+    - ✅ GET /api/vendors/
+    - ✅ GET /api/vendors/:id/
+    - ✅ GET /api/vendors/:id/product/
     - [ ] POST /api/vendors/
     - [ ] PATCH /api/vendors/:id/
     - [ ] DELETE /api/vendors/:id/

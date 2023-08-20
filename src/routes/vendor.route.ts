@@ -7,6 +7,11 @@ import { VendorService } from '../services';
 
 const router = Router();
 
+router.get('/:vendorId/product', async (req, res) => {
+    const vendorProducts = await VendorService.listVendorWithProducts(req.params.vendorId);
+    return res.status(StatusCodes.OK).json(vendorProducts);
+});
+
 router.get('/:vendorId', async (req, res) => {
     const product = await VendorService.getVendor(req.params.vendorId);
     return res.status(StatusCodes.OK).json(product);

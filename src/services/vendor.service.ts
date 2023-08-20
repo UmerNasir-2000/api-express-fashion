@@ -5,15 +5,14 @@ import { PaginationModel } from "../models/shared";
 import VendorRepository from "../repository/vendor.repository";
 
 export default class VendorService {
-
-    static async listVendor(pageSize: number = PAGE_SIZE, pageNumber: number = DEFAULT_PAGE_NUMBER): Promise<PaginationModel<Vendor>> {
-        
-        const whereCriteria: Prisma.VendorWhereInput = { };
+    static async listVendor(
+        pageSize: number = PAGE_SIZE,
+        pageNumber: number = DEFAULT_PAGE_NUMBER
+    ): Promise<PaginationModel<Vendor>> {
+        const whereCriteria: Prisma.VendorWhereInput = {};
 
         const vendorCount = await VendorRepository.getVendorCountWithCriteria(whereCriteria);
-
-        const totalPages = Math.ceil( vendorCount / pageSize );
-
+        const totalPages = Math.ceil(vendorCount / pageSize);
         const vendors = await VendorRepository.listVendorWithCriteria(whereCriteria);
 
         return new PaginationModel<Vendor>(
@@ -21,7 +20,14 @@ export default class VendorService {
             totalPages,
             vendors
         );
-        
+    }
+
+    static listVendorWithProducts(
+        id: string,
+        pageSize: number = PAGE_SIZE,
+        pageNumber: number = DEFAULT_PAGE_NUMBER
+    ): Promise<Array<Vendor>> {
+        return VendorRepository.listVendorProductsWithCriteria(id);
     }
 
     static async getVendor(id: string): Promise<Vendor> {
@@ -30,9 +36,8 @@ export default class VendorService {
             return vendor;
         } catch (error: any) {
             // TODO: Handle error handling...
-            Logger.error(error)
-            throw new Error(`Vendor with Id = ${id} does not exist.`)
+            Logger.error(error);
+            throw new Error(`Vendor with Id = ${id} does not exist.`);
         }
     }
-    
 }
